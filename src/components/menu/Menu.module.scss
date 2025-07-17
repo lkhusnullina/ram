@@ -1,0 +1,14 @@
+.menu {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+
+  &__link {
+    text-decoration: none;
+    color: #ffffff;
+  }
+}
+
+.active {
+  color: #646cff;
+}
