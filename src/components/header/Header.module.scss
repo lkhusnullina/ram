@@ -20,4 +20,19 @@
   &__label {
     text-decoration: none;
   }
+
+  // @media (max-width: 1024px) {
+  //   padding: 0 20px;
+  // }
+
+  @media (max-width: 768px) {
+    padding: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  // @media (max-width: 480px) {
+  //   padding: 0 10px;
+  // }
 }
