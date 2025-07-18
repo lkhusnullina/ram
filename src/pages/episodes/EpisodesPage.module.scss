@@ -1,0 +1,15 @@
+.top {
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+.content {
+    padding: 20px 0;
+}

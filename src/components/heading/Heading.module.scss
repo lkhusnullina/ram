@@ -1,5 +1,9 @@
 .title {
-    font-size: 25px;
-    color: #ffffff;
-    text-align: center;
+  font-size: 25px;
+  color: #ffffff;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 }

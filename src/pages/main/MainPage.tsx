@@ -1,38 +1,54 @@
 import { useEffect, useState } from 'react';
 import { getCharacters } from '../../services/api';
 import type { ICharacter } from '../../shared/models/ICharacter';
-import { Preloader } from '../../components/preloader/Preloader';
-import { Cards } from '../../components/cards/Cards';
-import { Heading } from '../../components/heading/Heading';
-// import styles from './MainPage.module.scss';
+import { Cards, Heading, Pagination, Preloader } from '../../components';
+import styles from './MainPage.module.scss';
 
 const MainPage = () => {
   const [characters, setCharacters] = useState<ICharacter[]>([]);
-  const [isLoading, setisLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
-    loadCharacters();
-  }, []);
+    const loadCharacters = async () => {
+      try {
+        setIsLoading(true);
+        const response = await getCharacters(currentPage);
+        setCharacters(response.results);
+        setTotalPages(response.info.pages);
+      } catch (error) {
+        console.error('Ошибка при загрузке персонажей', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-  const loadCharacters = async () => {
-    try {
-      setisLoading(true);
-      const characters = await getCharacters();
-      setCharacters(characters);
-    } catch (e) {
-      console.log(e);
-    } finally {
-      setisLoading(false);
-    }
-  };
+    loadCharacters();
+  }, [currentPage]);
 
   return (
     <div>
-      <Heading>Список персонажей</Heading>
+      <div className={styles.top}>
+        <Heading>Список персонажей</Heading>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={(page) => setCurrentPage(page)}
+        />
+      </div>
+
       {isLoading ? (
         <Preloader />
       ) : (
-        <Cards characters={characters} />
+        <div className={styles.content}>
+          <Cards characters={characters} />
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={(page) => setCurrentPage(page)}
+          />
+        </div>
       )}
     </div>
   );
