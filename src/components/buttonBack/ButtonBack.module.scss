@@ -1,0 +1,15 @@
+.buttonBack {
+  margin-bottom: 20px;
+  width: 150px;
+  background-color: transparent;
+  border: 1px solid #646cff;
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 10px;
+  color: #646cff;
+  cursor: pointer;
+
+  &:hover {
+    color: #ffffff;
+  }
+}

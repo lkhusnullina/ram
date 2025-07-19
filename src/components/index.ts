@@ -7,4 +7,5 @@ export * from './menu/Menu';
 export * from './preloader/Preloader';
 export * from './listEpisodes/ListEpisodes';
 export * from './listLocations/ListLocations';
-
+export * from './linkCustom/LinkCustom';
+export * from './buttonBack/ButtonBack';

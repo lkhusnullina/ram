@@ -30,6 +30,7 @@ const EpisodesPage = () => {
 
   return (
     <div>
+     
       <div className={styles.top}>
         <Heading>Список эпизодов</Heading>
         <Pagination

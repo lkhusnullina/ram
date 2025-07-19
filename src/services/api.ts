@@ -12,7 +12,6 @@ export const api: AxiosInstance = axios.create({
   headers: { 'Content-Type': 'application/json' },
 });
 
-
 export interface GetCharactersResponse {
   info: IInfo;
   results: ICharacter[];
@@ -43,6 +42,16 @@ export const getCharacters = async (
   }
 };
 
+export const getCharacterById = async (id: string | number): Promise<ICharacter> => {
+  try {
+    const response = await api.get<ICharacter>(`/character/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error('Ошибка получения персонажа:', error);
+    throw new Error('Не удалось получить персонажа');
+  }
+};
+
 export const getEpisodes = async (
   page = 1
 ): Promise<GetEpisodesResponse> => {
@@ -58,6 +67,16 @@ export const getEpisodes = async (
   }
 };
 
+export const getEpisodeById = async (id: string | number): Promise<IEpisode> => {
+  try {
+    const response = await api.get<IEpisode>(`/episode/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error('Ошибка получения эпизода:', error);
+    throw new Error('Не удалось получить эпизод');
+  }
+};
+
 export const getLocations = async (
   page = 1
 ): Promise<GetLocationsResponse> => {
@@ -70,5 +89,47 @@ export const getLocations = async (
   } catch (error) {
     console.error('Ошибка получения локаций:', error);
     throw new Error('Не удалось получить список локаций');
+  }
+};
+
+export const getLocationById = async (id: string | number): Promise<ILocation> => {
+  try {
+    const response = await api.get<ILocation>(`/location/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error('Ошибка получения локации:', error);
+    throw new Error('Не удалось получить локацию');
+  }
+};
+
+export const getCharactersByUrls = async (urls: string[]): Promise<ICharacter[]> => {
+  try {
+    const characterIds = urls.map(url => url.split('/').pop()); 
+    const idsString = characterIds.join(',');
+    const response = await api.get<ICharacter[] | ICharacter>(`/character/${idsString}`);
+    if (Array.isArray(response.data)) {
+      return response.data;
+    } else {
+      return [response.data];
+    }
+  } catch (error) {
+    console.error('Ошибка получения персонажей:', error);
+    throw new Error('Не удалось получить персонажей');
+  }
+};
+
+export const getEpisodesByUrls = async (urls: string[]): Promise<IEpisode[]> => {
+  try {
+    const episodeIds = urls.map(url => url.split('/').pop()); 
+    const idsString = episodeIds.join(',');
+    const response = await api.get<IEpisode[] | IEpisode>(`/episode/${idsString}`);
+    if (Array.isArray(response.data)) {
+      return response.data;
+    } else {
+      return [response.data];
+    }
+  } catch (error) {
+    console.error('Ошибка получения эпизодов:', error);
+    throw new Error('Не удалось получить эпизодов');
   }
 };

@@ -24,4 +24,9 @@
     height: 200px;
     border-radius: 10px;
   }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+  }
 }

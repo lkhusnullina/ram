@@ -13,7 +13,7 @@ export const Menu = () => {
         Персонажи
       </NavLink>
       <NavLink
-        to="/episodes"
+        to="/episode"
         className={({ isActive }) =>
           isActive ? `${styles.menu__link} ${styles.active}` : styles.menu__link
         }
@@ -21,7 +21,7 @@ export const Menu = () => {
         Эпизоды
       </NavLink>
       <NavLink
-        to="/locations"
+        to="/location"
         className={({ isActive }) =>
           isActive ? `${styles.menu__link} ${styles.active}` : styles.menu__link
         }
