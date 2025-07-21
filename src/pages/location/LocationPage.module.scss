@@ -1,0 +1,29 @@
+.location {
+  &__content {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__section {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__characters {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 10px;
+  }
+
+  @media (max-width: 768px) {
+    &__characters {
+      padding: 0 10px;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  }
+}

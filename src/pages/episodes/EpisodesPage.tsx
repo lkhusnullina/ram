@@ -32,7 +32,7 @@ const EpisodesPage = () => {
     <div>
      
       <div className={styles.top}>
-        <Heading>Список эпизодов</Heading>
+        <Heading>Эпизоды</Heading>
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}

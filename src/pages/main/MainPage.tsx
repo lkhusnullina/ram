@@ -30,7 +30,7 @@ const MainPage = () => {
   return (
     <div>
       <div className={styles.top}>
-        <Heading>Список персонажей</Heading>
+        <Heading>Персонажи</Heading>
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}

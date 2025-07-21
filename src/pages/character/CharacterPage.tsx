@@ -38,7 +38,7 @@ const CharacterPage = () => {
 
   return (
     <div className={styles.character}>
-      <ButtonBack/>
+      <ButtonBack />
       <div className={styles.character__content}>
         <img
           src={character.image}

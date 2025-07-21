@@ -20,11 +20,16 @@ const LocationPage = () => {
       try {
         setIsLoading(true);
         const location = await getLocationById(id);
-        const characters = await getCharactersByUrls(location.residents);
         setLocation(location);
-        setCharacters(characters);
+
+        if (location.residents.length > 0) {
+          const characters = await getCharactersByUrls(location.residents);
+          setCharacters(characters);
+        } else {
+          setCharacters([]);
+        }
       } catch (error) {
-        console.error('Ошибка при загрузке эпизода', error);
+        console.error('Ошибка при загрузке локации', error);
       } finally {
         setIsLoading(false);
       }
@@ -39,30 +44,29 @@ const LocationPage = () => {
   if (!location) return <div>Локация не найдена</div>;
 
   return (
-    <div className={styles.episode}>
-      <ButtonBack/>
-      <h2 className={styles.episode__title}>
-        Название локации: {location.name}
-      </h2>
-      <div className={styles.episode__content}>
+    <div className={styles.location}>
+      <ButtonBack />
+      <h2>Локация: {location.name}</h2>
+      <div className={styles.location__content}>
         <p>Тип локации: {location.type}</p>
         <p>Измерение: {location.dimension}</p>
-        
       </div>
-      <div className={styles.episode__section}>
-          <h4>Список резидентов:</h4>
-          <div>
-            <ul className={styles.episode__characters}>
-              {characters.map((character) => (
-                <li key={character.id}>
-                  <LinkCustom to={`/character/${character.id}`}>
-                    {character.name}
-                  </LinkCustom>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+      <div className={styles.location__section}>
+        <h4>Резиденты:</h4>
+        {characters.length > 0 ? (
+          <ul className={styles.location__characters}>
+            {characters.map((character) => (
+              <li key={character.id}>
+                <LinkCustom to={`/character/${character.id}`}>
+                  {character.name}
+                </LinkCustom>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>Нет резидентов</p>
+        )}
+      </div>
     </div>
   );
 };

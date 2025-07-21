@@ -39,28 +39,27 @@ const EpisodePage = () => {
 
   return (
     <div className={styles.episode}>
-       <ButtonBack/>
+      <ButtonBack />
       <h2 className={styles.episode__title}>
-        Название эпизода: №{episode.id} {episode.name}
+        Эпизод: №{episode.id} {episode.name}
       </h2>
       <div className={styles.episode__content}>
         <p>Дата выхода: {episode.air_date}</p>
-        
       </div>
       <div className={styles.episode__section}>
-          <h4>Список персонажей:</h4>
-          <div>
-            <ul className={styles.episode__characters}>
-              {characters.map((character) => (
-                <li key={character.id}>
-                  <LinkCustom to={`/character/${character.id}`}>
-                    {character.name}
-                  </LinkCustom>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <h4>Персонажи:</h4>
+        <div>
+          <ul className={styles.episode__characters}>
+            {characters.map((character) => (
+              <li key={character.id}>
+                <LinkCustom to={`/character/${character.id}`}>
+                  {character.name}
+                </LinkCustom>
+              </li>
+            ))}
+          </ul>
         </div>
+      </div>
     </div>
   );
 };

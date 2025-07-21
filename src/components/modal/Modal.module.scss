@@ -1,0 +1,19 @@
+
+.modal {
+  position: fixed;
+  z-index: 999;
+  width: 200px;
+  padding: 12px;
+  pointer-events: none;
+  background: #ffffff;
+  color: #000000;
+  border-radius: 10px;
+  transition: opacity 0.2s ease;
+}
+
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 14px;
+}
