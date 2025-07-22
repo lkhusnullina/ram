@@ -43,3 +43,5 @@ npm run build
 ```sh
 docker compose up
 ```
+
+Видеообзор https://disk.yandex.ru/i/hgN2S3cqiWk8mQ
