@@ -1,7 +1,7 @@
-Web Application по вселенной Rick And Morty
+![alt text](image.png)
+### Web Application по вселенной Rick And Morty
 
-Цель:
-Разработать веб-приложение, отображающее информацию о персонажах,
+Веб-приложение, отображающее информацию о персонажах,
 эпизодах и локациях из мультсериала "Rick and Morty" с
 использованием Rest API.
 
@@ -17,9 +17,8 @@ React, typescript, vite, module scss, docker
 #### Скачайте архив проекта или склонируйте репозиторий
 
 ```sh
-
+git@github.com:lkhusnullina/ram.git
 ```
-
 #### Установите зависимости проекта
 
 ```sh
@@ -31,9 +30,7 @@ npm install
 npm run dev
 ```
 
-![alt text](image.png)
-
-#### Запуск через Docker
+#### Запуск через Docker (http://localhost:3000)
 
 #### Cборка образа
 
