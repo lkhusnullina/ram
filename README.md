@@ -43,3 +43,5 @@ docker build -t ram .
 ```sh
 docker run -dp 3000:3000 ram
 ```
+
+Видеообзор https://disk.yandex.ru/i/hgN2S3cqiWk8mQ
