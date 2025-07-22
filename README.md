@@ -35,11 +35,11 @@ npm run dev
 #### Cборка образа
 
 ```sh
-docker build -t ram .
+npm run build
 ```
 
 #### Запуск контейнера
 
 ```sh
-docker run -dp 3000:3000 ram
+docker compose up
 ```
