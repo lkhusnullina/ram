@@ -8,3 +8,4 @@ export * from './listEpisodes/ListEpisodes';
 export * from './listLocations/ListLocations';
 export * from './linkCustom/LinkCustom';
 export * from './buttonBack/ButtonBack';
+export * from './modal/Modal';

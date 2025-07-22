@@ -1,8 +1,8 @@
-import styles from './Cards.module.scss';
+import { useState } from 'react';
 import type { ICharacter } from '../../shared/models/ICharacter';
 import { LinkCustom } from '../linkCustom/LinkCustom';
 import { Modal } from '../modal/Modal';
-import { useState } from 'react';
+import styles from './Cards.module.scss';
 
 interface CardsProps {
   characters: ICharacter[];

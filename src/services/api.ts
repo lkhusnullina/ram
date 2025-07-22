@@ -42,7 +42,9 @@ export const getCharacters = async (
   }
 };
 
-export const getCharacterById = async (id: string | number): Promise<ICharacter> => {
+export const getCharacterById = async (
+  id: string | number
+): Promise<ICharacter> => {
   try {
     const response = await api.get<ICharacter>(`/character/${id}`);
     return response.data;
@@ -52,9 +54,7 @@ export const getCharacterById = async (id: string | number): Promise<ICharacter>
   }
 };
 
-export const getEpisodes = async (
-  page = 1
-): Promise<GetEpisodesResponse> => {
+export const getEpisodes = async (page = 1): Promise<GetEpisodesResponse> => {
   try {
     const response = await api.get<GetEpisodesResponse>(
       `/episode?page=${page}`
@@ -67,7 +67,9 @@ export const getEpisodes = async (
   }
 };
 
-export const getEpisodeById = async (id: string | number): Promise<IEpisode> => {
+export const getEpisodeById = async (
+  id: string | number
+): Promise<IEpisode> => {
   try {
     const response = await api.get<IEpisode>(`/episode/${id}`);
     return response.data;
@@ -77,9 +79,7 @@ export const getEpisodeById = async (id: string | number): Promise<IEpisode> => 
   }
 };
 
-export const getLocations = async (
-  page = 1
-): Promise<GetLocationsResponse> => {
+export const getLocations = async (page = 1): Promise<GetLocationsResponse> => {
   try {
     const response = await api.get<GetLocationsResponse>(
       `/location?page=${page}`
@@ -92,7 +92,9 @@ export const getLocations = async (
   }
 };
 
-export const getLocationById = async (id: string | number): Promise<ILocation> => {
+export const getLocationById = async (
+  id: string | number
+): Promise<ILocation> => {
   try {
     const response = await api.get<ILocation>(`/location/${id}`);
     return response.data;
@@ -102,11 +104,15 @@ export const getLocationById = async (id: string | number): Promise<ILocation> =
   }
 };
 
-export const getCharactersByUrls = async (urls: string[]): Promise<ICharacter[]> => {
+export const getCharactersByUrls = async (
+  urls: string[]
+): Promise<ICharacter[]> => {
   try {
-    const characterIds = urls.map(url => url.split('/').pop()); 
+    const characterIds = urls.map((url) => url.split('/').pop());
     const idsString = characterIds.join(',');
-    const response = await api.get<ICharacter[] | ICharacter>(`/character/${idsString}`);
+    const response = await api.get<ICharacter[] | ICharacter>(
+      `/character/${idsString}`
+    );
     if (Array.isArray(response.data)) {
       return response.data;
     } else {
@@ -118,11 +124,15 @@ export const getCharactersByUrls = async (urls: string[]): Promise<ICharacter[]>
   }
 };
 
-export const getEpisodesByUrls = async (urls: string[]): Promise<IEpisode[]> => {
+export const getEpisodesByUrls = async (
+  urls: string[]
+): Promise<IEpisode[]> => {
   try {
-    const episodeIds = urls.map(url => url.split('/').pop()); 
+    const episodeIds = urls.map((url) => url.split('/').pop());
     const idsString = episodeIds.join(',');
-    const response = await api.get<IEpisode[] | IEpisode>(`/episode/${idsString}`);
+    const response = await api.get<IEpisode[] | IEpisode>(
+      `/episode/${idsString}`
+    );
     if (Array.isArray(response.data)) {
       return response.data;
     } else {
@@ -130,6 +140,6 @@ export const getEpisodesByUrls = async (urls: string[]): Promise<IEpisode[]> => 
     }
   } catch (error) {
     console.error('Ошибка получения эпизодов:', error);
-    throw new Error('Не удалось получить эпизодов');
+    throw new Error('Не удалось получить эпизоды');
   }
 };
