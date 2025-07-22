@@ -1,69 +1,48 @@
-# React + TypeScript + Vite
+Web Application по вселенной Rick And Morty
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Цель:
+Разработать веб-приложение, отображающее информацию о персонажах,
+эпизодах и локациях из мультсериала "Rick and Morty" с
+использованием Rest API.
 
-Currently, two official plugins are available:
+### Функционал
+Прототип включает в себя вывод списка персонажей: при наведении на персонажа появляется модальное окна с
+краткой информацией, по клику на персонажа открывается страница с подробной информацией. Есть страница со списком эпизодов, по клику открывается страница с подробной информацией об эпизоде. Страница с локациями, по клику на локацию открывается страница с подробной информацией.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Технологии: 
+React, typescript, vite, module scss, docker
 
-## Expanding the ESLint configuration
+#### Запуск dev-сервера (http://localhost:5173)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+#### Скачайте архив проекта или склонируйте репозиторий
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+```sh
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+#### Установите зависимости проекта
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```sh
+npm install
+```
+#### Запустите проект командой
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```sh
+npm run dev
+```
+
+![alt text](image.png)
+
+#### Запуск через Docker
+
+#### Cборка образа
+
+```sh
+docker build -t ram .
+```
+
+#### Запуск контейнера
+
+```sh
+docker run -dp 3000:3000 ram
 ```
