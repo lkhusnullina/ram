@@ -37,9 +37,14 @@ npm run dev
 ```sh
 npm run build
 ```
-
+в зависимости от версии 
 ```sh
 docker compose up
+```
+или
+
+```sh
+docker-compose up
 ```
 
 [Видеообзор](https://disk.yandex.ru/i/hgN2S3cqiWk8mQ)
